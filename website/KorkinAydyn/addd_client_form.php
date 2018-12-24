@@ -12,7 +12,7 @@ $family_name = mysqli_real_escape_string($link, $_POST['family_name']);
 echo $first_name;
 echo $family_name;
 
-$SQLquery = "INSERT INTO authors (AuthorID, FirstName, FamilyName) VALUES ((SELECT max(AuthorID)+1 from (Select AuthorID from authors) as ID), '$first_name','$family_name')";
+$SQLquery = "INSERT INTO client (AuthorID, FirstName, FamilyName) VALUES ((SELECT max(AuthorID)+1 from (Select AuthorID from authors) as ID), '$first_name','$family_name')";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
