@@ -31,9 +31,9 @@
 			  <form action="add_doctor_form_action.php" method="post">
           		  	Fullname: <input type="text" name="fullname">
           		  	<br>
-				Diploma(yes - 1 / no - 0): <input type="number" name="diploma">
+				Diploma (yes - 1 / no - 0): <input type="number" name="diploma">
           		  	<br>
-				Worktime(HH-HH (like 0900-1500)): <input type="text" name="worktime">
+				Worktime (HH-HH (like 0900-1500)): <input type="text" name="worktime">
 				<br>
 				Spec: 
 				<select name="spec_id">
