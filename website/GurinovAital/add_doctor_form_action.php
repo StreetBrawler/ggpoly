@@ -3,13 +3,12 @@ include('config.php');
 $link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtalDB')
 	or die('Error: Unable to connect: ' . mysqli_connect_error());
 
+$name = mysqli_real_escape_string($link, $_POST['fullname']);
+$dipl = mysqli_real_escape_string($link, $_POST['diploma']);
+$time = mysqli_real_escape_string($link, $_POST['worktime']);
+$spec = mysqli_real_escape_string($link, $_POST['spec_id']);
 
-$fullname = mysqli_real_escape_string($link, $_POST['fullname']);
-$address = mysqli_real_escape_string($link, $_POST['address']);
-$passport = mysqli_real_escape_string($link, $_POST['passport']);
-// Ecape String
-
-$SQLquery = "INSERT INTO Patient (idPatient, Fullname, Address, Passport) VALUES ((SELECT IFNULL(max(idPatient)+1,1) from (Select idPatient from Patient) as id), '$fullname','$address','$passport')";
+$SQLquery = "INSERT INTO Doctor (idDoctor, Fullname, Diploma, Worktime, Spec) VALUES ((SELECT IFNULL(max(idDoctor)+1,1) from (Select idDoctor from Doctor) as id), '$name',$dipl,'$time',$spec)";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
