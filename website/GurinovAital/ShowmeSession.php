@@ -31,11 +31,11 @@
 		printf('<TR> %s',"\n");
 		if ($result[4]==1)
 		{
-			printf('<TD> %d </TD> <TD>%d</TD> <TD>%s</TD> <TD>%s</TD> <TD>%s</TD>',$result[0],$result[1],' ', ' ', 'y');//$result[2],$result[3],'YES');
+			printf('<TD> %d </TD> <TD>%d</TD> <TD>%s</TD> <TD>%s</TD> <TD>%s</TD>',$result[0],$result[1],$result[2],$result[3],'YES');
 		}
 		else
 		{
-			printf('<TD> %d </TD> <TD>%d</TD> <TD>%s</TD> <TD>%s</TD> <TD>%s</TD>',$result[0],$result[1],' ', ' ', 'n');//$result[2],$result[3],'NO'); 
+			printf('<TD> %d </TD> <TD>%d</TD> <TD>%s</TD> <TD>%s</TD> <TD>%s</TD>',$result[0],$result[1],$result[2],$result[3],'NO'); 
 		}
 		printf('</TR> %s',"\n");
 	}

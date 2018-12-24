@@ -25,7 +25,18 @@
 			  <a href="ShowmeDatacard.php"> <P>Datacards</P> </a>
 			  <a href="ShowmeSpec.php"> <P>All doctor's specs</P> </a>
 			  <a href="ShowmeSession.php"> <P>Sessions</P> </a>
-			  <a href="add_patient.html"> <P>Add new patient</P> </a>
+			</TD>
+			<TD>
+			  <P>Add new patient:</P>
+			  <form action="add_patient_form_action.php" method="post">
+          		  	Full Name: <input type="text" name="fullname">
+          		  	<br>
+				Address: <input type="text" name="address">
+          		  	<br>
+				Passport: <input type="text" name="passport">
+				<br> 
+            		  	<input type="submit" value="Add patient">
+      			  </form>
 			</TD>
 		</TR>
 
