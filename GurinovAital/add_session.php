@@ -31,7 +31,7 @@
 			  <a href="add_spec.html"> <P>Add new specialization</P> </a>
 			</TD>			<TD>
 			  <P>Add new session into database:</P>
-			  <form action="add_doctor_form_action.php" method="post">
+			  <form action="add_session_form_action.php" method="post">
 				Select doctor: 
 				<select name="doc">
 					<?php 
