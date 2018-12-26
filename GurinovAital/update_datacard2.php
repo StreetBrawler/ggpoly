@@ -43,19 +43,17 @@
 				</select>
 				<br>
 				Switch session: 
-				<select name="session">
+				<select name="ccc">
 					<?php 
 		                        include('config.php');	
 					$link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtalDB')					
 	    					or die('Error: Unable to connect: ' . mysqli_connect_error());
 						
-					$SQLquery = 'SELECT idSession, FullName, Date, Time
-							 FROM Session inner join Doctor on Doctor.idDoctor=Session.Doctor WHERE Session.
-							idSession not in (select session from Datacard)';
+					$SQLquery = 'SELECT idConc, Name, InitialT FROM Conclusion';
 					$SQLresult = mysqli_query($link,$SQLquery);
 					while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
 					{
-						printf('<option value=%d>%s %s %s %s %s</option>',$result[0],$result[1],' / ',$result[2],' / ',$result[3]);
+						printf('<option value=%d>%s %s %s</option>',$result[0],$result[1],' / ',$result[2],);
 					}
 					mysqli_free_result($SQLresult);
 					mysqli_close($link);
