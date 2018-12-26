@@ -18,7 +18,6 @@
 
 	printf('<table cellspacing=\' 10 \' border=\' 1 \'> %s',"\n");
 	printf('<TR> %s',"\n");
-	printf('	<TH>idCard</TH> %s',"\n");
 	printf('	<TH>Patient</TH> %s',"\n");
 	printf('	<TH>Session</TH> %s',"\n");
 	printf('	<TH>Conclusion</TH> %s',"\n");
@@ -28,7 +27,7 @@
 	while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
 	{
 		printf('<TR>');
-		{printf('<TD> %d </TD> <TD>%s</TD> <TD>%s</TD> <TD>%s</TD>',$result[0],$result[5],$result[8],$result[14]);}
+		{printf('<TD>%s</TD> <TD>%d</TD> <TD>%s</TD>',$result[5],$result[8],$result[14]);}
 		printf('</TR> %s',"\n");
 	}
 	printf('</table> %s',"\n");
