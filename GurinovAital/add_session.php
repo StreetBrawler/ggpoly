@@ -26,26 +26,38 @@
 			  <a href="ShowmeSpec.php"> <P>All doctor's specs</P> </a>
 			  <a href="ShowmeSession.php"> <P>Sessions</P> </a>
 			  <a href="add_patient.html"> <P>Add new patient</P> </a>
+			  <a href="add_doctor.html"> <P>Add doctor</P> </a>
 			  <a href="add_conc.html"> <P>Add info about new plague</P> </a>
 			  <a href="add_spec.html"> <P>Add new specialization</P> </a>
-			  <a href="add_session.php"> <P>Add new session</P> </a>
 			</TD>			<TD>
-			  <P>Add doctor:</P>
+			  <P>Add new session into database:</P>
 			  <form action="add_doctor_form_action.php" method="post">
-          		  	Fullname: <input type="text" name="fullname">
-          		  	<br>
-				Diploma (yes - 1 / no - 0): <input type="number" name="diploma">
-          		  	<br>
-				Worktime (HH-HH (like 0900-1500)): <input type="text" name="worktime">
-				<br>
-				Spec: 
-				<select name="spec_id">
+				Select doctor: 
+				<select name="doc">
 					<?php 
 		                        include('config.php');	
 					$link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtalDB')					
 	    					or die('Error: Unable to connect: ' . mysqli_connect_error());
 						
-					$SQLquery = 'SELECT idSpec, SpecName FROM Spec';
+					$SQLquery = 'SELECT idDoctor, FullName, SpecName FROM Doctor inner join Spec on Doctor.Spec=Spec.idSpec';
+					$SQLresult = mysqli_query($link,$SQLquery);
+					while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
+					{
+						printf('<option value=%d>%s %s %s %s</option>',$result[0],$result[1],' (',$result[2],')');
+					}
+					mysqli_free_result($SQLresult);
+					mysqli_close($link);
+					?>
+				</select>
+				<br>
+				Select patient:
+				<select name="patient">
+					<?php 
+		                        include('config.php');	
+					$link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtalDB')					
+	    					or die('Error: Unable to connect: ' . mysqli_connect_error());
+						
+					$SQLquery = 'SELECT idPatient, FullName FROM Patient';
 					$SQLresult = mysqli_query($link,$SQLquery);
 					while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
 					{
@@ -55,8 +67,13 @@
 					mysqli_close($link);
 					?>
 				</select>
+				
 				<br>
-            		  	<input type="submit" value="Add doctor">
+				Date (YEAR-MONTH-DAY. Example - 1999-02-27): <input type="text" name="date">
+          		  	<br>
+				Time (H:M:S. Example - 13:00:00): <input type="text" name="time">
+				<br>
+            		  	<input type="submit" value="Add new session">
       			  </form>
 			</TD>
 		</TR>
