@@ -12,7 +12,7 @@ $SQLquery = "INSERT INTO Datacard (idCard, Patient, Session, Conclusion) VALUES 
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
-$SQLquery = "INSERT INTO Session (idSession, Doctor, Date, Time, Succeed) VALUES ((SELECT IFNULL(max(idSession)+1,1) from (Select idSession from Session) as id), $doc,$date,$time,0)";
+$SQLquery = "INSERT INTO Session (idSession, Doctor, Date, Time, Succeed) VALUES ((SELECT IFNULL(max(idSession)+1,1) from (Select idSession from Session) as id), $doc,'$date','$time',0)";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
