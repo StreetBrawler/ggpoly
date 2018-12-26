@@ -6,7 +6,7 @@ $link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtal
 $dc = mysqli_real_escape_string($link, $_POST['dc']);
 $sss = mysqli_real_escape_string($link, $_POST['session']);
 
-$SQLquery = "UPDATE Datacard SET Datacard.Session WHERE Datacard.idCard=$dc";
+$SQLquery = "UPDATE Datacard SET Datacard.Session=$sss WHERE Datacard.idCard=$dc";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
