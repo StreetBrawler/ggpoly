@@ -49,7 +49,9 @@
 					$link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtalDB')					
 	    					or die('Error: Unable to connect: ' . mysqli_connect_error());
 						
-					$SQLquery = 'SELECT idSession, FullName, Date, Time FROM Session inner join Doctor on Doctor.idDoctor=Session.Doctor inner join Datacard on Datacard.Session=Session.idSession WHERE Datacard.Session!=Session.idSession';
+					$SQLquery = 'SELECT idSession, FullName, Date, Time
+							 FROM Session inner join Doctor on Doctor.idDoctor=Session.Doctor WHERE Session.
+							idSession not in (select session from Datacard)';
 					$SQLresult = mysqli_query($link,$SQLquery);
 					while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
 					{
