@@ -23,7 +23,7 @@
 			  </TD>			
 			  <TD>
 			  <P>Update datacard:</P>
-			  <form action="upd_datacard_form_action.php" method="post">
+			  <form action="upd_datacard2_form_action.php" method="post">
 				Select datacard: 
 				<select name="dc">
 					<?php 
@@ -42,7 +42,7 @@
 					?>
 				</select>
 				<br>
-				Switch session: 
+				Switch conclusion: 
 				<select name="ccc">
 					<?php 
 		                        include('config.php');	
@@ -53,7 +53,7 @@
 					$SQLresult = mysqli_query($link,$SQLquery);
 					while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
 					{
-						printf('<option value=%d>%s %s %s</option>',$result[0],$result[1],' / ',$result[2],);
+						printf('<option value=%d>%s %s %s</option>',$result[0],$result[1],' / ',$result[2]);
 					}
 					mysqli_free_result($SQLresult);
 					mysqli_close($link);
