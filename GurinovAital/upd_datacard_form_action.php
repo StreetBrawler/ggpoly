@@ -3,14 +3,10 @@ include('config.php');
 $link = mysqli_connect('10.14.129.132', 'GurinovAjtal', 'CB5LagBA','GurinovAjtalDB')
 	or die('Error: Unable to connect: ' . mysqli_connect_error());
 
-$doc = mysqli_real_escape_string($link, $_POST['doc']);
-$pat = mysqli_real_escape_string($link, $_POST['patient']);
-$date = mysqli_real_escape_string($link, $_POST['date']);
-$time = mysqli_real_escape_string($link, $_POST['time']);
+$dc = mysqli_real_escape_string($link, $_POST['dc']);
+$sss = mysqli_real_escape_string($link, $_POST['session']);
 
-$SQLquery = "INSERT INTO Session (idSession, Doctor, Date, Time, Succeed) VALUES ((SELECT IFNULL(max(idSession)+1,1) 
-from (Select idSession from Session) as id), $doc,'$date','$time',0)";
-
+$SQLquery = "UPDATE Datacard SET Datacard.Session WHERE Datacard.idCard=$dc";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
