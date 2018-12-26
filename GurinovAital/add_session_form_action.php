@@ -8,15 +8,9 @@ $pat = mysqli_real_escape_string($link, $_POST['patient']);
 $date = mysqli_real_escape_string($link, $_POST['date']);
 $time = mysqli_real_escape_string($link, $_POST['time']);
 
-$SQLquery = "INSERT INTO Datacard (idCard, Patient, Session, Conclusion) VALUES ((SELECT IFNULL(max(idCard)+1,1) from (Select idCard from Datacard) as id),$pat,(SELECT IFNULL(max(idSession)+1,1) from (Select idSession from Session) as kd),2)";
+$SQLquery = "INSERT INTO Session (idSession, Doctor, Date, Time, Succeed) VALUES ((SELECT IFNULL(max(idSession)+1,1) from (Select idSession from Session) as id), $doc,'$date','$time',0); INSERT INTO Datacard (idCard, Patient, Session, Conclusion) VALUES ((SELECT IFNULL(max(idCard)+1,1) from (Select idCard from Datacard) as id),$pat,(SELECT IFNULL(max(idSession)+1,1) from (Select idSession from Session) as kd),2);";
 echo '<BR> SQL query: ';
 echo $SQLquery;
-
-$SQLquery = "INSERT INTO Session (idSession, Doctor, Date, Time, Succeed) VALUES ((SELECT IFNULL(max(idSession)+1,1) from (Select idSession from Session) as id), $doc,'$date','$time',0)";
-echo '<BR> SQL query: ';
-echo $SQLquery;
-
-
 
 if (mysqli_query($link, $SQLquery)) {
     echo "<BR>New record created successfully";
