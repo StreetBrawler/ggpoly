@@ -26,7 +26,7 @@
 			  <a href="ShowmeSpec.php"> <P>All doctor's specs</P> </a>
 			  <a href="ShowmeSession.php"> <P>Sessions</P> </a>
 			  <a href="add_patient.html"> <P>Add new patient</P> </a>
-			  <a href="add_doctor.html"> <P>Add doctor</P> </a>
+			  <a href="add_doctor.php"> <P>Add doctor</P> </a>
 			  <a href="add_conc.html"> <P>Add info about new plague</P> </a>
 			  <a href="add_spec.html"> <P>Add new specialization</P> </a>
 			</TD>			<TD>
